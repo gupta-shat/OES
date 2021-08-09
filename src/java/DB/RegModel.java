@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package DB;
+
 import Beans.RegisterBean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,6 +22,7 @@ public class RegModel {
     public static int create( RegisterBean rb){
         int i=0;
          try {
+             if(searchEmail(rb)==0){
             Connection con=DBConnection.getConnection();
             String quary="insert into Students(name, email) values(?,?)";
             PreparedStatement pst=con.prepareStatement(quary);
@@ -33,6 +35,10 @@ public class RegModel {
             pst1.setString(1, rb.getEmail());
             pst1.setString(2, rb.getPass());
             i += pst1.executeUpdate();
+             }
+             else{
+                 i=-1;
+             }
             //con.close();
             
         } catch (ClassNotFoundException ex) {
@@ -45,7 +51,7 @@ public class RegModel {
     
     public static int searchEmail( RegisterBean rb) throws SQLException{
         int i=0;
-        Connection con=null;
+        Connection con = null;
          try {
             con=DBConnection.getConnection();
             String quary="select * from Students where email='"+rb.getEmail()+"'";
@@ -65,5 +71,42 @@ public class RegModel {
              con.close();
          }
          return i;
+    }
+    public static RegisterBean search(String uname) {
+        Connection con=null;
+        RegisterBean rb=new RegisterBean();
+        String utype=null;
+        try{
+            con=DBConnection.getConnection();
+            String qry="select * from users where username='"+uname+"'";
+            Statement st=con.createStatement();
+            ResultSet rs=st.executeQuery(qry);
+            while(rs.next()){
+                rb.setEmail(rs.getString(2));
+                if(rs.getInt(4) == 1){
+                    utype="Faculty";
+                }
+                else{
+                    utype="Students";
+                }
+                
+            }
+           
+           String qry1="select * from "+utype+" where email='"+uname+"'"; 
+           Statement st1=con.createStatement();
+           ResultSet rs1=st1.executeQuery(qry1);
+           while(rs1.next()){
+               rb.setName(rs1.getString(2));
+               rb.setContact(rs1.getLong(4));
+           }
+            rs.close();
+          rs1.close();
+        }
+        catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return rb;
     }
 }

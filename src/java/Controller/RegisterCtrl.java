@@ -9,9 +9,6 @@ import Beans.RegisterBean;
 import DB.RegModel;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author shatakshi
+ * @author sarvesh
  */
 public class RegisterCtrl extends HttpServlet {
 
@@ -84,39 +81,29 @@ public class RegisterCtrl extends HttpServlet {
             rb.setName(name);
             rb.setEmail(email);
             rb.setPass(pass);
-            int row=-1;
-        try {
-            row = RegModel.searchEmail(rb);
-        }catch (SQLException ex) {
-            Logger.getLogger(RegisterCtrl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            if(row == 0)
-            {
-                    int i=RegModel.create(rb);
-                    if(i==2){
-                         System.out.println("I="+i);
-                        out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");
-                        out.println("alert('Registered Successfully, Login Now!Your Email is your username.');");
-                        out.println("javascript:history.go(-1)");
-                        //out.println("window.location.href=\"index.jsp\"");
-                        out.println("</script>"+"\n"+"</head>"+"\n"+"</HTML>"); 
-                    }
-                    else{
-                        out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");
+            
+            
+            int i=RegModel.create(rb);
+            if(i==2){
+                 out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");
 
-                        out.println("alert('Not Registered, Please Try Again!')");
-                        out.println("javascript:history.go(-1)");
-                        out.println("</script>"+"\n"+"</head>"+"\n"+"</HTML>"); 
-                    }
-                   
+                out.println("alert('Register Successfully, Login Now! \nYour Email is your username.')");
+                out.println("javascript:history.go(-1)");
+                out.println("</script>"+"\n"+"</head>"+"\n"+"</HTML>"); 
+            }
+            else if(i==-1){
+                 out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");
+
+                out.println("alert('Already Registered')");
+                out.println("javascript:history.go(-1)");
+                out.println("</script>"+"\n"+"</head>"+"\n"+"</HTML>"); 
             }
             else{
-                
-                        out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");
+                out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");
 
-                        out.println("alert('You are already Registered.')");
-                        out.println("javascript:history.go(-1)");
-                        out.println("</script>"+"\n"+"</head>"+"\n"+"</HTML>");
+                out.println("alert('Not Register, Please Try Again!')");
+                out.println("javascript:history.go(-1)");
+                out.println("</script>"+"\n"+"</head>"+"\n"+"</HTML>"); 
             }
             
     }

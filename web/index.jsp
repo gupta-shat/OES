@@ -20,7 +20,7 @@
         <div class="container">
             <div >
             
-            <form action="Login" id='login' method="POST" style="display: none">
+            <form action="Login" id='login' method="POST">
                 <div class="card" >
                  <div class="card-header bg-warning text-center">Login</div>
              <div class="card-body">
@@ -33,7 +33,7 @@
             <div class="row mt-1">
                 <div class="col-lg-4 col-md-4 col-sm-12 ">Password :</div>
                 <div class="col-lg-8 col-md-8 col-sm-12"> <input type="password" name='password' id='password'  required>
-                    <img src="Resources/icons/closed-eye.png" alt="" id="eyeclose" class="eyeIcon"/>
+                    <img src="resources/icons/closed-eye.png" alt="" id="eyeclose" class="eyeIcon"/>
                     </div>
                               
             </div>
@@ -45,7 +45,7 @@
             </div>
             </div>
         </form>
-            <form id='signup' action="Register" method="POST">
+            <form id='signup' action="Register" method="POST" style="display: none">
                 <div class="card" >
                  <div class="card-header bg-warning text-center">Signup</div>
              <div class="card-body">
@@ -63,7 +63,7 @@
             <div class="row mt-1">
                 <div class="col-lg-4 col-md-4 col-sm-12 ">Password :</div>
                 <div class="col-lg-8 col-md-8 col-sm-12"> <input type="password" name='password1' id='password1' required />
-                <img src="Resources/icons/closed-eye.png" alt="" id="eyeclose1" class="eyeIcon"/>
+                <img src="resources/icons/closed-eye.png" alt="" id="eyeclose1" class="eyeIcon"/>
                  </div>
                               
             </div>
@@ -78,6 +78,6 @@
         </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script src="Resources/JS/myscript.js" type="text/javascript"></script>
+        <script src="resources/JS/myscript.js" type="text/javascript"></script>
     </body>
 </html>

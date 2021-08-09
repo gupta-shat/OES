@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
+/**
  *
  * @author shatakshi
  */
@@ -75,6 +76,7 @@ public class LoginServlet extends HttpServlet {
            String name=request.getParameter("username");
            String pass=request.getParameter("password");
            String uname=null, upass=null;
+           int isAdmin=0;
         try {
             Connection con=DBConnection.getConnection();
             Statement st=con.createStatement();
@@ -82,6 +84,7 @@ public class LoginServlet extends HttpServlet {
             while(rs.next()){
                 upass=rs.getString(3);
                 uname=rs.getString(2);
+                isAdmin=rs.getInt(4);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -93,7 +96,12 @@ public class LoginServlet extends HttpServlet {
               
                HttpSession session=request.getSession();
                session.setAttribute("username", uname);
-                response.sendRedirect("welcome.jsp");
+               if(isAdmin==1){
+                    response.sendRedirect("module/admin/Dashboard.jsp");
+               }
+               else{
+                   response.sendRedirect("module/students/Dashboard.jsp");
+               }
            }
            else{
             out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");

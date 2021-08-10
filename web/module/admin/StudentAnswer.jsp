@@ -62,7 +62,11 @@
                           <div class="row">
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Question Paper:</span>
-                                <input id="Question No" type="text" class="form-control" name="Question Number" required="">
+                                <select name="Question Paper" id="Exam" class="form-control">
+                                <option value="Web Technology">Web Technology</option>
+                                <option value="JAVA">JAVA</option>
+                                <option value="JavaScript">JavaScript</option>
+                                </select>
                             </div>
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Student Name:</span>

@@ -74,6 +74,16 @@
                             </div>
                           <div class="row">
                               <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Faculty:</span>
+                                <select name="Faculty" id="Faculty" class="form-control">
+                                <option value="Neeraj Saxena">Neeraj Saxena</option>
+                                <option value="Mayank Rastogi">Mayank Rastogi</option>
+                                <option value="Mohit Rajput">Mohit Rajpoot</option>
+                                </select>
+                                </div>
+                          </div>
+                          <div class="row">
+                              <div class="form-group col-lg-6 col-sm-12">
                                   <div class="row"> 
                                       <div class="form-group col-lg-4 col-sm-12"><span class=" ">Course Type:</span></div>
                                       <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="Sessionable" id="Session" value="Session">Session</div>

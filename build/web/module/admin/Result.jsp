@@ -67,9 +67,25 @@
                             </div>
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Exam:</span>
-                                <input id="Exam" type="text" class="form-control" name="Exam" required="">
+                                <select name="Exam" id="Exam" class="form-control">
+                                <option value="Yearly">Yearly</option>
+                                <option value="Half Yearly">Half Yearly</option>
+                                <option value="Semester">Semester</option>
+                                <option value="Sessional">Sessional</option>
+                                <option value="Mock Test">Mock Test</option>
+                                </select>
                             </div>
                             </div>
+                          <div class="row">
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Obtained Marks:</span>
+                                <input id="Obtained Marks" type="text" class="form-control" name="Obtained Marks" required="">
+                            </div>
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Date & Time:</span>
+                                <input id="Date/Time" type="text" class="form-control" name="Date & Time" required="">
+                            </div>
+                          </div>
                             </div>
                             <div class="form-group"><center>
                                     <input class="btn btn-success col-lg-6 col-sm-12" type="submit" value="Submit"></center>

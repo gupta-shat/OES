@@ -71,7 +71,11 @@
                           <div class="row">
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Course:</span>
-                                <input id="Session" type="text" class="form-control" name="Course" required="">
+                                <select name="Course" id="Course" class="form-control">
+                                <option value="Btech CS">BTech CS</option>
+                                <option value="Btech IT">Btech IT</option>
+                                <option value="MCA">MCA</option>
+                                </select>
                             </div>
                             <div class="form-group col-lg-6 col-sm-12">
                                 <div>

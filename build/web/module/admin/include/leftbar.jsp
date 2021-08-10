@@ -26,6 +26,7 @@
           <h2>Manage</h2>
           <div class="sidebar__link">
             <i class="fa fa-user-secret" aria-hidden="true"></i>
+            
             <a href="../admin/Course.jsp">Courses</a>
           </div>
           <div class="sidebar__link">

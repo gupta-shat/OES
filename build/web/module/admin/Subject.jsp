@@ -65,19 +65,29 @@
                             </div>
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Course:</span>
-                                <input id="Course" type="text" class="form-control" name="Course" required="">
+                                <select name="Course" id="Course" class="form-control">
+                                <option value="Btech CS">BTech CS</option>
+                                <option value="Btech IT">Btech IT</option>
+                                <option value="MCA">MCA</option>
+                                </select>
                             </div>
                           </div>
                           <div class="row">
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Session:</span>
-                                <input id="Session" type="text" class="form-control" name="Session" required="">
+                                <select name="Session" id="Session" class="form-control">
+                                <option value="Session 1">Session 1</option>
+                                <option value="Session 2">Session 2</option>
+                                <option value="Session 3">Session 3</option>
+                                </select>
                             </div>
                             <div class="form-group col-lg-6 col-sm-12">
-                                <div>
-                                <span class=" ">Faculty :</span>
-                               <input id="Faculty" type="text" class="form-control" name="Faculty" required="">
-                                </div>
+                                <span class=" ">Faculty:</span>
+                                <select name="Faculty" id="Faculty" class="form-control">
+                                <option value="Neeraj Saxena">Neeraj Saxena</option>
+                                <option value="Mayank Rastogi">Mayank Rastogi</option>
+                                <option value="Mohit Rajput">Mohit Rajpoot</option>
+                                </select>
                             </div>
                           </div>
                             <div class="form-group"><center>

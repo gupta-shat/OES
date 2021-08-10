@@ -74,10 +74,12 @@
                                 <input id="Session" type="text" class="form-control" name="Marks" required="">
                             </div>
                             <div class="form-group col-lg-6 col-sm-12">
-                                <div>
-                                <span class=" ">Faculty :</span>
-                                <input id="Faculty" type="text" class="form-control" name="Faculty" required="">
-                                </div>
+                                <span class=" ">Faculty:</span>
+                                <select name="Faculty" id="Faculty" class="form-control">
+                                <option value="Neeraj Saxena">Neeraj Saxena</option>
+                                <option value="Mayank Rastogi">Mayank Rastogi</option>
+                                <option value="Mohit Rajput">Mohit Rajpoot</option>
+                                </select>
                             </div>
                           </div>
                           <div class="row">

@@ -59,9 +59,15 @@
                   <div class="card-body">
                       <form>
                             <div class="row">
-                            <div class="form-group col-lg-112 col-sm-12">
+                            <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Exam:</span>
-                                <input id="Exam" type="text" class="form-control" name="Exam" required="">
+                                <select name="Exam" id="Exam" class="form-control">
+                                <option value="Yearly">Yearly</option>
+                                <option value="Half Yearly">Half Yearly</option>
+                                <option value="Semester">Semester</option>
+                                <option value="Sessional">Sessional</option>
+                                <option value="Mock Test">Mock Test</option>
+                                </select>
                             </div>
                             </div>    
                              <div class="form-group">

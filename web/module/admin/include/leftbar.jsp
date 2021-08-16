@@ -57,6 +57,10 @@
             <i class="fa fa-archive"></i>
             <a href="../admin/Result.jsp">Result</a>
           </div>
+          <div class="sidebar__link">
+            <i class="fa fa-handshake-o"></i>
+            <a href="examPaper.jsp">Exam Paper</a>
+          </div>
           <%--<h2>LEAVE</h2>
           <div class="sidebar__link">
             <i class="fa fa-question"></i>

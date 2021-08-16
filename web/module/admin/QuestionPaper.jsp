@@ -57,19 +57,15 @@
               <div class="card" style="padding: 0px; height: auto">
                   <div class="card-header"><h3>Question Paper</h3></div>
                   <div class="card-body">
+                      <div>
+                          <div class="step"><button class="stepbtn" onclick="tabSwitch('1')">1</button></div>
+                      <div class="step"><button class="stepbtn" onclick="tabSwitch('2')">2</button></div>
+                      <div class="step"><button class="stepbtn" onclick="tabSwitch('3')">3</button></div>
+                      <div class="step"><button class="stepbtn" onclick="tabSwitch('4')">4</button></div>
+                      </div>
+                      <hr>
                       <form>
-                            <div class="row">
-                            <div class="form-group col-lg-6 col-sm-12">
-                                <span class=" ">Exam:</span>
-                                <select name="Exam" id="Exam" class="form-control">
-                                <option value="Yearly">Yearly</option>
-                                <option value="Half Yearly">Half Yearly</option>
-                                <option value="Semester">Semester</option>
-                                <option value="Sessional">Sessional</option>
-                                <option value="Mock Test">Mock Test</option>
-                                </select>
-                            </div>
-                            </div>    
+                             <div class="tab" id="tab-1" style="display: block">   
                              <div class="form-group">
                                 <span class=" ">Question:</span>
                                 <textarea row="3" cols="12" id="Question" class="form-control" name="Question" ></textarea>
@@ -101,10 +97,121 @@
                                 <input id="Answer" type="text" class="form-control" name="Answer" required="">
                               </div>
                              </div>  
-                            <div class="form-group"><center>
-                                    <input class="btn btn-success col-lg-6 col-sm-12" type="submit" value="Submit"></center>
+                            
+                          </div>
+                              <!-- tab2 -->
+                               <div class="tab" id="tab-2" >   
+                             <div class="form-group">
+                                <span class=" ">Question2:</span>
+                                <textarea row="3" cols="12" id="Question" class="form-control" name="Question" ></textarea>
+                            </div> 
+                            
+                            <div class="row">
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Option (a):</span>
+                                <input id="a" type="text" class="form-control" name="a" required="">
                             </div>
-         
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Option (b):</span>
+                                <input id="b" type="text" class="form-control" name="b" required="">
+                            </div>
+                            </div>
+                            <div class="row">
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Option (c):</span>
+                                <input id="c" type="text" class="form-control" name="c" required="">
+                            </div>
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Option (d):</span>
+                                <input id="d" type="text" class="form-control" name="d" required="">
+                            </div>
+                            </div>
+                            <div class="row">
+                              <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Correct Option:</span>
+                                <input id="Answer" type="text" class="form-control" name="Answer" required="">
+                              </div>
+                             </div>  
+                            
+                          </div>
+                              <!-- tab3 -->
+                               <div class="tab" id="tab-3" >   
+                             <div class="form-group">
+                                <span class=" ">Question3:</span>
+                                <textarea row="3" cols="12" id="Question" class="form-control" name="Question" ></textarea>
+                            </div> 
+                            
+                            <div class="row">
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Option (a):</span>
+                                <input id="a" type="text" class="form-control" name="a" required="">
+                            </div>
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Option (b):</span>
+                                <input id="b" type="text" class="form-control" name="b" required="">
+                            </div>
+                            </div>
+                            <div class="row">
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Option (c):</span>
+                                <input id="c" type="text" class="form-control" name="c" required="">
+                            </div>
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Option (d):</span>
+                                <input id="d" type="text" class="form-control" name="d" required="">
+                            </div>
+                            </div>
+                            <div class="row">
+                              <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Correct Option:</span>
+                                <input id="Answer" type="text" class="form-control" name="Answer" required="">
+                              </div>
+                             </div>  
+                            
+                          </div>
+                               <div class="tab" id="tab-4" >   
+                             <div class="form-group">
+                                <span class=" ">Question4:</span>
+                                <textarea row="3" cols="12" id="Question" class="form-control" name="Question" ></textarea>
+                            </div> 
+                            
+                            <div class="row">
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Option (a):</span>
+                                <input id="a" type="text" class="form-control" name="a" required="">
+                            </div>
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Option (b):</span>
+                                <input id="b" type="text" class="form-control" name="b" required="">
+                            </div>
+                            </div>
+                            <div class="row">
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Option (c):</span>
+                                <input id="c" type="text" class="form-control" name="c" required="">
+                            </div>
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Option (d):</span>
+                                <input id="d" type="text" class="form-control" name="d" required="">
+                            </div>
+                            </div>
+                            <div class="row">
+                              <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Correct Option:</span>
+                                <input id="Answer" type="text" class="form-control" name="Answer" required="">
+                              </div>
+                             </div>  
+                            
+                          </div>
+                          
+                          <!-- Buttons -->
+                          <div style="bottom:0; position: fixed;overflow:auto;">
+                            <div style="">
+                                <button type="button" class="btn btn-success back" ><i class="fa fa-backward"></i>Previous</button>
+                                <button type="button" class="btn btn-success next" >Next<i class="fa fa-forward"></i></button>
+                                <button type="button" class="btn btn-success" id="endbtn" >Submit</button>
+                            </div>
+                          </div>
                         </form>
                   </div>
               </div>
@@ -122,6 +229,45 @@ $(document).ready(function(){
   });
 });
 </script>
+  <script>
+            var counter = 1;
+            const total=4;
+            /*if(counter === 1) {
+		$('.next').show();
+             */ };
+$('body').on('click', '.next', function() { 
+	$('.tab').hide();
+//document.getElementsByClassName("step")[counter].className += " finish";
+    counter++;
+	$('#tab-'+counter+'').show();
+    
+	if(counter > 1) {
+		$('.back').show();
+	};
+	if(counter > total) {
+            //alert(counter);
+            $('#endbtn').show();
+            //$('.next').hide();
+            counter=0;
+	};
+	
+});
+$('body').on('click', '.back', function() { 
+    //alert(counter);
+    counter--;
+    $('.tab').hide();
+    var id = counter;    
+	$('#tab-'+id).show();
+    if(counter<2){
+            $('.back').hide();
+    }
+    	
+});
+function tabSwitch(values){
+    $('.tab').hide();
+    $('#tab-'+values+'').show();
+}
+        </script>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
 <script src="../../resources/JS/script.js" type="text/javascript"></script>
 </body>

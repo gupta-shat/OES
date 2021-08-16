@@ -5,8 +5,7 @@
  */
 package Controller;
 
-import Beans.RegisterBean;
-import DB.RegModel;
+import Beans.SubjectBean;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author shatakshi
  */
-public class RegisterCtrl extends HttpServlet {
+public class SubjectCtrl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +36,10 @@ public class RegisterCtrl extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RegisterCtrl</title>");            
+            out.println("<title>Servlet SubjectCtrl</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet RegisterCtrl at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SubjectCtrl at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -72,41 +71,15 @@ public class RegisterCtrl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            PrintWriter out = response.getWriter();
-            String name=request.getParameter("name");
-            String email=request.getParameter("email");
-            String pass=request.getParameter("password1");
-            //System.out.println(name+" "+email+" "+pass);
-            RegisterBean rb=new RegisterBean();
-            rb.setName(name);
-            rb.setEmail(email);
-            rb.setPass(pass);
-            
-            
-            int i=RegModel.create(rb);
-            if(i==2){
-                 out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");
-
-                out.println("alert('Register Successfully, Login Now! \nYour Email is your username.')");
-                out.println("javascript:history.go(-1)");
-                out.println("</script>"+"\n"+"</head>"+"\n"+"</HTML>"); 
-            }
-            else if(i==-1){
-                 out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");
-
-                out.println("alert('Already Registered')");
-                out.println("javascript:history.go(-1)");
-                out.println("</script>"+"\n"+"</head>"+"\n"+"</HTML>"); 
-            }
-            else{
-                out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");
-
-                out.println("alert('Not Register, Please Try Again!')");
-                out.println("javascript:history.go(-1)");
-                out.println("</script>"+"\n"+"</head>"+"\n"+"</HTML>"); 
-            }
-            
+        //processRequest(request, response);
+        PrintWriter out = response.getWriter();
+            String subject=request.getParameter("Subject");
+            String description=request.getParameter("descp");
+         SubjectBean sb= new SubjectBean();
+         sb.setSubject(subject);
+         sb.setDescription(description);
     }
+
     /**
      * Returns a short description of the servlet.
      *

@@ -17,12 +17,18 @@ and open the template in the editor.
 @media (max-width: 776.98px) { 
     .card{
         width: 100% !important;
-    }    
+    }  
+    #dataTables{
+        display: block !important;
+    }
 }
 
 
 @media (min-width: 777px) and (max-width : 1399px) { 
 .card{
         width: 60% !important;
+    }
+    #dataTables{
+        display: table !important;
     }
 }

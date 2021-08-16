@@ -57,13 +57,18 @@
               <div class="card" style="padding: 0px; height: auto">
                   <div class="card-header"><h3>Subject</h3></div>
                   <div class="card-body">
-                      <form>
+                      <form method="POST">
                           <div class="row">
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Subject:</span>
                                 <input id="Subject" type="text" class="form-control" name="Subject" required="">
                             </div>
-                            <div class="form-group col-lg-6 col-sm-12">
+                          </div>
+                            <div class="form-group">
+                                <span class=" ">Description:</span>
+                                <textarea row="2" cols="12" id="descp" class="form-control" name="descp" ></textarea>
+                            </div>
+                           <!-- <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Course:</span>
                                 <select name="Course" id="Course" class="form-control">
                                 <option value="Btech CS">BTech CS</option>
@@ -88,8 +93,8 @@
                                 <option value="Mayank Rastogi">Mayank Rastogi</option>
                                 <option value="Mohit Rajput">Mohit Rajpoot</option>
                                 </select>
-                            </div>
-                          </div>
+                            </div>-->
+                          
                             <div class="form-group"><center>
                                     <input class="btn btn-success col-lg-6 col-sm-12" type="submit" value="Submit"></center>
                             </div>

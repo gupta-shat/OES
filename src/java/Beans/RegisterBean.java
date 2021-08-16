@@ -70,4 +70,12 @@ public class RegisterBean {
     public void setContact(long contact) {
         this.contact = contact;
     }
+
+    public String getSubject() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getDescription() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -57,7 +57,7 @@
               <div class="card" style="padding: 0px; height: auto">
                   <div class="card-header"><h3>Subject</h3></div>
                   <div class="card-body">
-                      <form method="POST" action="/src/Controller/SubjectCtrl" id="Subject">
+                      <form method="POST" action="/OES/SubjectCtrl" id="Subject">
                           <div class="row">
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Subject:</span>

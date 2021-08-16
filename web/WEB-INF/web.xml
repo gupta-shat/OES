@@ -22,7 +22,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SubjectCtrl</servlet-name>
-        <url-pattern>/Subject</url-pattern>
+        <url-pattern>/SubjectCtrl</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

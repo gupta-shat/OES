@@ -10,11 +10,37 @@ package Beans;
  * @author shatakshi
  */
 public class SubjectBean {
-    public void setSubject(String subject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private String subject=null;
+    private String description=null;
+
+    /**
+     * @return the subject
+     */
+    public String getSubject() {
+        return subject;
     }
 
-    public void setDescription(String description) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @param subject the subject to set
+     */
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+
+    
 }

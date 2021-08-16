@@ -27,8 +27,8 @@ public class SubjectModel {
             String quary="insert into Subject(subject, description) values(?,?)";
 
             PreparedStatement pst=con.prepareStatement(quary);
-            pst.setString(1, sb.getName());
-            pst.setString(2, sb.getEmail());
+            pst.setString(1, sb.getSubject());
+            pst.setString(2, sb.getDescription());
             i=pst.executeUpdate();
              
         } catch (ClassNotFoundException ex) {

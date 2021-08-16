@@ -6,6 +6,7 @@
 package Controller;
 
 import Beans.SubjectBean;
+import DB.SubjectModel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -78,6 +79,7 @@ public class SubjectCtrl extends HttpServlet {
          SubjectBean sb= new SubjectBean();
          sb.setSubject(subject);
          sb.setDescription(description);
+         SubjectModel.create(sb);
     }
 
     /**

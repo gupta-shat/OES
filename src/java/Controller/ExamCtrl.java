@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Beans.ExamBean;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -75,13 +76,27 @@ public class ExamCtrl extends HttpServlet {
         String duration=request.getParameter("duration");
         String time=request.getParameter("time");
         String marks=request.getParameter("marks");
+        //String nmarks=request.getParameter("nmarks");
         String qus=request.getParameter("totalqus");
         String isActive=request.getParameter("isActive");
         String isMain=request.getParameter("isMain");
         String isResult=request.getParameter("isResult");
+        ExamBean eb=new ExamBean();
+        eb.setSubCode(Integer.parseInt(subCode));
+        eb.setExam(exam);
+        eb.setDuration(duration);
+        eb.setTime(time);
+        eb.setMarks(Integer.parseInt(marks));
+        //eb.setNmarks(Integer.parseInt(nmarks));
+        eb.setQus(Integer.parseInt(qus));
+        eb.setIsActive(Integer.parseInt(isActive));
+        eb.setIsMain(Integer.parseInt(isMain));
+        eb.setIsResult(Integer.parseInt(isResult));
+        
 
-        System.out.println("Subject:"+subCode+" Exam:"+exam+" duration:"+duration+" time:"+time);
-        System.out.println("Marks:"+marks+" qus:"+qus+" Active:"+isActive+" Main:"+isMain+" Result:"+isResult);
+        //questionpaper.jsp?ques="qus"
+        //System.out.println("Subject:"+subCode+" Exam:"+exam+" duration:"+duration+" time:"+time);
+        //System.out.println("Marks:"+marks+" qus:"+qus+" Active:"+isActive+" Main:"+isMain+" Result:"+isResult);
     }
 
     /**

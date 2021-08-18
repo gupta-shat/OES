@@ -67,7 +67,7 @@
                                           ResultSet rs=SubjectModel.fetchSubject();
                                           while(rs.next()){
                                       %>
-                                      <option value="<%=rs.getInt(1)%>"><%=rs.getString(2)+" "+rs.getInt(1)%></option>
+                                      <option value="<%=rs.getInt(1)%>"><%=rs.getString(2)+"("+rs.getInt(1)+")"%></option>
                                       <% } %>
                                   </select>
                               </div>

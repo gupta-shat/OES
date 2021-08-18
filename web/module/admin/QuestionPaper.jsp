@@ -58,10 +58,17 @@
                   <div class="card-header"><h3>Question Paper</h3></div>
                   <div class="card-body">
                       <div>
-                          <div class="step"><button class="stepbtn" onclick="tabSwitch('1')">1</button></div>
-                      <div class="step"><button class="stepbtn" onclick="tabSwitch('2')">2</button></div>
-                      <div class="step"><button class="stepbtn" onclick="tabSwitch('3')">3</button></div>
-                      <div class="step"><button class="stepbtn" onclick="tabSwitch('4')">4</button></div>
+                          <%--
+                            <div class="step"><button class="stepbtn" onclick="tabSwitch('1')">1</button></div>
+                            <div class="step"><button class="stepbtn" onclick="tabSwitch('2')">2</button></div>
+                            <div class="step"><button class="stepbtn" onclick="tabSwitch('3')">3</button></div>
+                            <div class="step"><button class="stepbtn" onclick="tabSwitch('4')">4</button></div>
+                          --%>
+                          <% int no_ques=Integer.parseInt(request.getParameter("ques"));
+                                for(int i=1;i<=no_ques;i++){
+                          %>
+                          <div class="step"><button class="stepbtn" onclick="tabSwitch('<%=i%>')"><%= i%></button></div>
+                          <% } %>
                       </div>
                       <hr>
                       <form>
@@ -94,7 +101,7 @@
                             <div class="row">
                               <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Correct Option:</span>
-                                <input id="Answer" type="text" class="form-control" name="Answer" required="">
+                                <input id="Answer" type="text" class="form-control" name="answer" required="">
                               </div>
                              </div>  
                             

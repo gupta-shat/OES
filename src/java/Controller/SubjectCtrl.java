@@ -79,7 +79,22 @@ public class SubjectCtrl extends HttpServlet {
          SubjectBean sb= new SubjectBean();
          sb.setSubject(subject);
          sb.setDescription(description);
-         SubjectModel.create(sb);
+         int i=SubjectModel.create(sb);
+         if(i== 0){
+
+            out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");
+
+            out.println("alert('Record not entered. Please Try Again!')");
+            out.println("javascript:history.go(-1)");
+            out.println("</script>"+"\n"+"</head>"+"\n"+"</HTML>");
+         }
+         else{
+            out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");
+
+            out.println("alert('Subject added Successfully!')");
+            out.println("javascript:history.go(-1)");
+            out.println("</script>"+"\n"+"</head>"+"\n"+"</HTML>"); 
+           }
     }
 
     /**

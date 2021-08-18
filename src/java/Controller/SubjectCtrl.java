@@ -81,7 +81,6 @@ public class SubjectCtrl extends HttpServlet {
          sb.setDescription(description);
          int i=SubjectModel.create(sb);
          if(i== 0){
-
             out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");
 
             out.println("alert('Record not entered. Please Try Again!')");

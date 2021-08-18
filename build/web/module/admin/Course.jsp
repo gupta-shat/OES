@@ -91,7 +91,7 @@ label {
                                 <span class=" ">Course Description:</span>
                                 <textarea row="2" cols="12" id="description" class="form-control" name="Description" ></textarea>
                             </div>
-                            <div class="form-group">
+                            <%--<div class="form-group">
                                 <div>
                                 <span class=" ">Course Type :</span>
                                <br/>
@@ -100,7 +100,16 @@ label {
                                     <label class="btn btn-primary btnwhite" style="color:white"><input type="radio" name="ctype" value="0" required="">Yearly</label>
                                    </div>
                             </div>
-                            </div>
+                            </div>--%>
+                            <div class="row">
+                              <div class="form-group col-lg-6 col-sm-12">
+                                  <div class="row"> 
+                                      <div class="form-group col-lg-4 col-sm-12"><span class=" ">Course Type:</span></div>
+                                      <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="Sessionable" id="Session" value="Session">Session</div>
+                                      <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="Sessionable" id="Year" value="Year">Year</div>
+                                  </div>
+                              </div>
+                          </div>
                             <div class="form-group"><center>
                                     <input class="btn btn-success col-lg-6 col-sm-12" type="submit" value="Submit"></center>
                             </div>

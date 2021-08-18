@@ -5,19 +5,18 @@
  */
 package Controller;
 
-import Beans.SubjectBean;
-import DB.SubjectModel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 /**
  *
  * @author shatakshi
  */
-public class SubjectCtrl extends HttpServlet {
+public class ExamCtrl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +35,10 @@ public class SubjectCtrl extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SubjectCtrl</title>");            
+            out.println("<title>Servlet ExamCtrl</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SubjectCtrl at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ExamCtrl at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -71,28 +70,18 @@ public class SubjectCtrl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-              PrintWriter out = response.getWriter();
-            String subject=request.getParameter("Subject");
-            String description=request.getParameter("descp");
-         SubjectBean sb= new SubjectBean();
-         sb.setSubject(subject);
-         sb.setDescription(description);
-         int i=SubjectModel.create(sb);
-         if(i== 0){
+        String subCode=request.getParameter("subject");
+        String exam=request.getParameter("exam");
+        String duration=request.getParameter("duration");
+        String time=request.getParameter("time");
+        String marks=request.getParameter("marks");
+        String qus=request.getParameter("totalqus");
+        String isActive=request.getParameter("isActive");
+        String isMain=request.getParameter("isMain");
+        String isResult=request.getParameter("isResult");
 
-            out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");
-
-            out.println("alert('Record not entered. Please Try Again!')");
-            out.println("javascript:history.go(-1)");
-            out.println("</script>"+"\n"+"</head>"+"\n"+"</HTML>");
-         }
-         else{
-            out.println("<HTML>"+"\n"+"<head>"+"\n"+"<script>");
-
-            out.println("alert('Subject added Successfully!')");
-            out.println("javascript:history.go(-1)");
-            out.println("</script>"+"\n"+"</head>"+"\n"+"</HTML>"); 
-           }
+        System.out.println("Subject:"+subCode+" Exam:"+exam+" duration:"+duration+" time:"+time);
+        System.out.println("Marks:"+marks+" qus:"+qus+" Active:"+isActive+" Main:"+isMain+" Result:"+isResult);
     }
 
     /**

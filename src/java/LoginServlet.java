@@ -86,8 +86,6 @@ public class LoginServlet extends HttpServlet {
                 uname=rs.getString(2);
                 isAdmin=rs.getInt(4);
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

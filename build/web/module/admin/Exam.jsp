@@ -3,7 +3,8 @@
     Created on : 08-Aug-2021, 1:04:12 am
     Author     : shatakshi
 --%>
-
+<%@page import="DB.SubjectModel"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -57,21 +58,38 @@
               <div class="card" style="padding: 0px; height: auto">
                   <div class="card-header"><h3>Exam</h3></div>
                   <div class="card-body">
-                      <form>
+                        <form method="POST" action="/OES_JAVA/ExamCtrl">
                           <div class="row">
-                            <div class="form-group col-lg-6 col-sm-12">
-                                <span class=" ">Exam Title:</span>
-                                <input id="Subject" type="text" class="form-control" name="Exam" required="">
-                            </div>
-                            <div class="form-group col-lg-6 col-sm-12">
-                                <span class=" ">Exam Duration:</span>
-                                <input id="Course" type="text" class="form-control" name="Duration" required="">
+                              <div class="form-group col-lg-6 col-sm-12">
+                                  <span class="">Subject:</span>
+                                  <select class="form-control" name="subject">
+                                      <% 
+                                          ResultSet rs=SubjectModel.fetchSubject();
+                                          while(rs.next()){
+                                      %>
+                                      <option value="<%=rs.getInt(1)%>"><%=rs.getString(2)+" "+rs.getInt(1)%></option>
+                                      <% } %>
+                                  </select>
+                              </div>
+                                  <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Exam Time:</span>
+                                <input id="Course" type="datetime-local" class="form-control" name="time" required="">
                             </div>
                           </div>
                           <div class="row">
                             <div class="form-group col-lg-6 col-sm-12">
-                                <span class=" ">Total Marks:</span>
-                                <input id="Session" type="text" class="form-control" name="Marks" required="">
+                                <span class=" ">Exam Title:</span>
+                                <input id="Subject" type="text" class="form-control" name="exam" required="">
+                            </div>
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Exam Duration:</span>
+                                <input id="Course" type="time" class="form-control" name="duration" required="">
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">Marks Per Question:</span>
+                                <input id="Session" type="Number" class="form-control" name="marks" required="">
                             </div>
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Faculty:</span>
@@ -86,8 +104,8 @@
                               <div class="form-group col-lg-6 col-sm-12">
                                   <div class="row"> 
                                       <div class="form-group col-lg-4 col-sm-12"><span class=" ">Exam State:   </span></div>
-                                      <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="is active" id="active" value="Active">Active</div>
-                                      <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="is active" id="inactive" value="Inactive">Inactive</div>
+                                      <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="isActive" id="active" value="1">Active</div>
+                                      <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="isActive" id="inactive" value="0">Inactive</div>
                                   </div>
                               </div>
                           </div>    
@@ -95,8 +113,8 @@
                               <div class="form-group col-lg-6 col-sm-12">
                                   <div class="row"> 
                                       <div class="form-group col-lg-4 col-sm-12"><span class=" ">Exam Type:   </span></div>
-                                      <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="is main" id="Main Exam" value="Main Exam">Main Exam</div>
-                                      <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="is main" id="Mock Test" value="Mock Test">Mock Test</div>
+                                      <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="isMain" id="Main Exam" value="1">Main Exam</div>
+                                      <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="isMain" id="Mock Test" value="0">Mock Test</div>
                                   </div>
                               </div>
                           </div>
@@ -104,8 +122,8 @@
                               <div class="form-group col-lg-6 col-sm-12">
                                   <div class="row"> 
                                       <div class="form-group col-lg-4 col-sm-12"><span class=" ">Result State:   </span></div>
-                                      <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="is result declared" id="Declared" value="Declared">Declared</div>
-                                      <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="is result declared" id="Not Declared" value="Not Declared">Not Declared</div>
+                                      <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="isResult" id="Declared" value="1">Declared</div>
+                                      <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="isResult" id="Not Declared" value="0">Not Declared</div>
                                   </div>
                               </div>
                           </div>

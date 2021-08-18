@@ -8,9 +8,12 @@ package DB;
 import Beans.SubjectBean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-//import java.sql.Statement;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 
 /**
@@ -18,11 +21,10 @@ import java.sql.SQLException;
  * @author shatakshi
  */
 public class SubjectModel {
-    
-    public static int create( SubjectBean sb){
+    public static int create( SubjectBean sb) {
         int i=0;
          try {
-            
+
             Connection con=DBConnection.getConnection();
             String quary="insert into Subject(subject, description) values(?,?)";
 
@@ -30,12 +32,25 @@ public class SubjectModel {
             pst.setString(1, sb.getSubject());
             pst.setString(2, sb.getDescription());
             i=pst.executeUpdate();
-             
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
          return i;
     }
+    public static ResultSet fetchSubject(){
+        ResultSet rs=null;
+        Connection con=null;
+        try {
+            con=DBConnection.getConnection();
+            String quary="select * from Subject";
+            Statement st=con.createStatement();
+            rs=st.executeQuery(quary);
+            //System.out.print(rs.getRow());
+        } catch (SQLException ex) {
+            Logger.getLogger(SubjectModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+
 }

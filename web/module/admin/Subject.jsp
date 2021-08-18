@@ -3,7 +3,8 @@
     Created on : 08-Aug-2021, 1:04:12 am
     Author     : shatakshi
 --%>
-
+<%@page import="java.sql.ResultSet"%>
+<%@page import="DB.SubjectModel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,9 +13,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="theme-color" content="yellow" />
              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+             <link rel="stylrsheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
             <link href="../../CSS/styles.css" rel="stylesheet" type="text/css"/>
             <link href="../../CSS/modelclass.css" rel="stylesheet" type="text/css"/>
           <link
@@ -101,6 +105,35 @@
                         </form>
                   </div>
               </div>
+              <div class="card" style="padding: 0px; height: auto">
+                  <div class="card-header">Course Details</div>
+                  <div class="card-body">
+                       <div class="dataTable_wrapper">
+                           <table class="table table-striped table-hover table-responsive" id="dataTables">
+                                    <thead>
+                                             <tr>
+                <th>Subject Name</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% 
+                ResultSet rs=SubjectModel.fetchSubject();
+               
+                while(rs.next()){
+                %>
+            <tr>
+                <td><%=rs.getString(2)%></td>
+                <td><%=rs.getString(3)%></td>
+                <td><i class="fa fa-edit"></i><i class="fa fa-trash"></i></td>
+            </tr>
+            <% } %>
+                                        </tbody>
+                                </table>
+                  </div>
+              </div>
+          </div>
           </div>
           <!-- MAIN CARDS ENDS HERE -->
         </div>
@@ -112,8 +145,20 @@
 $(document).ready(function(){
   $("#myBtn").click(function(){
     $("#myModal").modal();
+    
   });
+  $('#dataTables').DataTable({
+                responsive: true
+        });      
 });
+function checkAll(bx) {
+  var cbs = document.getElementsByTagName('input');
+  for(var i=0; i < cbs.length; i++) {
+    if(cbs[i].type == 'checkbox') {
+      cbs[i].checked = bx.checked;
+    }
+  }
+}
 </script>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
 <script src="../../resources/JS/script.js" type="text/javascript"></script>

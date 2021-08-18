@@ -40,7 +40,6 @@ public class SubjectBean {
     public void setDescription(String description) {
         this.description = description;
     }
-    
 
-    
+
 }

@@ -40,9 +40,6 @@ public class RegModel {
                  i=-1;
              }
             //con.close();
-            
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -61,9 +58,6 @@ public class RegModel {
             i=rs.getRow();
             System.out.println("Rows"+i);
             //con.close();
-            
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -101,9 +95,6 @@ public class RegModel {
            }
             rs.close();
           rs1.close();
-        }
-        catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

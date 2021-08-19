@@ -9,9 +9,13 @@
             <file>file:/home/shatakshi/NetBeansProjects/OES/src/java/LoginServlet.java</file>
             <file>file:/home/shatakshi/NetBeansProjects/OES/web/module/admin/Course.jsp</file>
             <file>file:/home/shatakshi/NetBeansProjects/OES/src/java/DB/DBConnection.java</file>
+            <file>file:/home/shatakshi/NetBeansProjects/OES/web/module/admin/QuestionPaper.jsp</file>
+            <file>file:/home/shatakshi/NetBeansProjects/OES/src/java/Beans/ExamBean.java</file>
             <file>file:/home/shatakshi/NetBeansProjects/OES/src/java/Controller/RegisterCtrl.java</file>
             <file>file:/home/shatakshi/NetBeansProjects/OES/web/module/admin/Dashboard.jsp</file>
+            <file>file:/home/shatakshi/NetBeansProjects/OES/web/module/admin/examPaper.jsp</file>
             <file>file:/home/shatakshi/NetBeansProjects/OES/src/java/Controller/ExamCtrl.java</file>
+            <file>file:/home/shatakshi/NetBeansProjects/OES/src/java/DB/ExamModel.java</file>
             <file>file:/home/shatakshi/NetBeansProjects/OES/src/java/Controller/SubjectCtrl.java</file>
             <file>file:/home/shatakshi/NetBeansProjects/OES/web/module/admin/Subject.jsp</file>
             <file>file:/home/shatakshi/NetBeansProjects/OES/web/module/admin/Exam.jsp</file>

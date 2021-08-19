@@ -6,6 +6,7 @@
 package Controller;
 
 import Beans.ExamBean;
+import DB.ExamModel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -92,7 +93,7 @@ public class ExamCtrl extends HttpServlet {
         eb.setIsActive(Integer.parseInt(isActive));
         eb.setIsMain(Integer.parseInt(isMain));
         eb.setIsResult(Integer.parseInt(isResult));
-        
+          ExamModel.create(eb);
 
         //questionpaper.jsp?ques="qus"
         //System.out.println("Subject:"+subCode+" Exam:"+exam+" duration:"+duration+" time:"+time);

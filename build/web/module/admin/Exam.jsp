@@ -58,7 +58,7 @@
               <div class="card" style="padding: 0px; height: auto">
                   <div class="card-header"><h3>Exam</h3></div>
                   <div class="card-body">
-                        <form method="POST" action="/OES_JAVA/ExamCtrl">
+                        <form method="POST" action="/OES/ExamCtrl">
                           <div class="row">
                               <div class="form-group col-lg-6 col-sm-12">
                                   <span class="">Subject:</span>
@@ -91,13 +91,17 @@
                                 <span class=" ">Marks Per Question:</span>
                                 <input id="Session" type="Number" class="form-control" name="marks" required="">
                             </div>
-                            <div class="form-group col-lg-6 col-sm-12">
+                            <%--<div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Faculty:</span>
                                 <select name="Faculty" id="Faculty" class="form-control">
                                 <option value="Neeraj Saxena">Neeraj Saxena</option>
                                 <option value="Mayank Rastogi">Mayank Rastogi</option>
                                 <option value="Mohit Rajput">Mohit Rajpoot</option>
                                 </select>
+                            </div>--%>
+                            <div class="form-group col-lg-6 col-sm-12">
+                                <span class=" ">No of Questions:</span>
+                                <input id="totalqus" type="text" class="form-control" name="totalqus" required="">
                             </div>
                           </div>
                           <div class="row">

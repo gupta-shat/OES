@@ -73,6 +73,9 @@ and open the template in the editor.
 .tab{
     display: none;
 }
+#tab-1{
+    display: block;
+}
 .back{
     display: none;
 }

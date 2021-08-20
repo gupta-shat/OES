@@ -58,55 +58,62 @@
                   <div class="card-header"><h3>Question Paper</h3></div>
                   <div class="card-body">
                       <div>
-                          <%--
-                            <div class="step"><button class="stepbtn" onclick="tabSwitch('1')">1</button></div>
-                            <div class="step"><button class="stepbtn" onclick="tabSwitch('2')">2</button></div>
-                            <div class="step"><button class="stepbtn" onclick="tabSwitch('3')">3</button></div>
-                            <div class="step"><button class="stepbtn" onclick="tabSwitch('4')">4</button></div>
-                          --%>
                           <% int no_ques=Integer.parseInt(request.getParameter("ques"));
+                            String paperId=request.getParameter("pid");
                                 for(int i=1;i<=no_ques;i++){
-                          %>
-                          <div class="step"><button class="stepbtn" onclick="tabSwitch('<%=i%>')"><%= i%></button></div>
-                          <% } %>
+                                        %>
+                                <div class="step"><button class="stepbtn" onclick="tabSwitch('<%=i%>')"><%= i%></button></div>
+                                <% } %>
                       </div>
                       <hr>
-                      <form>
-                             <div class="tab" id="tab-1" style="display: block">   
+                      <form action="/OES/ExamPaper" method="POST">
+                          <input type="hidden" name="ques" value="<%=no_ques%>"><!-- comment -->
+                          <input type="hidden" name="paperid" value="<%=paperId%>">
+                          <% //int no_ques=Integer.parseInt(request.getParameter("ques"));
+                                for(int i=1;i<=no_ques;i++){
+                                        %>
+                             <div class="tab" id="<%="tab-"+i%>" >   
                              <div class="form-group">
-                                <span class=" ">Question:</span>
-                                <textarea row="3" cols="12" id="Question" class="form-control" name="Question" ></textarea>
+                                <span class=" ">Question-<%=i%>:</span>
+                                <textarea row="4" cols="12" id="Question<%=i%>" class="form-control" name="Question<%=i%>" ></textarea>
                             </div> 
                             
                             <div class="row">
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Option (a):</span>
-                                <input id="a" type="text" class="form-control" name="a" required="">
+                                <input id="a<%=i%>" type="text" class="form-control" name="a<%=i%>" required="">
                             </div>
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Option (b):</span>
-                                <input id="b" type="text" class="form-control" name="b" required="">
+                                <input id="b<%=i%>" type="text" class="form-control" name="b<%=i%>" required="">
                             </div>
                             </div>
                             <div class="row">
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Option (c):</span>
-                                <input id="c" type="text" class="form-control" name="c" required="">
+                                <input id="c<%=i%>" type="text" class="form-control" name="c<%=i%>" required="">
                             </div>
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Option (d):</span>
-                                <input id="d" type="text" class="form-control" name="d" required="">
+                                <input id="d<%=i%>" type="text" class="form-control" name="d<%=i%>" required="">
                             </div>
                             </div>
                             <div class="row">
                               <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Correct Option:</span>
-                                <input id="Answer" type="text" class="form-control" name="answer" required="">
+                                <select type="text" class="form-control" name="answer<%=i%>" required>
+                                    <option value="a">A</option>
+                                    <option value="b">B</option>
+                                    <option value="c">C</option>
+                                    <option value="d">D</option>
+                                </select>
+                               
                               </div>
                              </div>  
                             
                           </div>
-                              <!-- tab2 -->
+                             <% } %>
+                              <!-- tab2
                                <div class="tab" id="tab-2" >   
                              <div class="form-group">
                                 <span class=" ">Question2:</span>
@@ -141,7 +148,7 @@
                              </div>  
                             
                           </div>
-                              <!-- tab3 -->
+                              <!-- tab3 
                                <div class="tab" id="tab-3" >   
                              <div class="form-group">
                                 <span class=" ">Question3:</span>
@@ -216,7 +223,7 @@
                             <div style="">
                                 <button type="button" class="btn btn-success back" ><i class="fa fa-backward"></i>Previous</button>
                                 <button type="button" class="btn btn-success next" >Next<i class="fa fa-forward"></i></button>
-                                <button type="button" class="btn btn-success" id="endbtn" >Submit</button>
+                                <input type="submit" class="btn btn-success" id="endbtn" value="Submit">
                             </div>
                           </div>
                         </form>
@@ -238,10 +245,10 @@ $(document).ready(function(){
 </script>
   <script>
             var counter = 1;
-            const total=4;
+            const total=<%=no_ques%>;
             /*if(counter === 1) {
 		$('.next').show();
-             */ };
+             */ 
 $('body').on('click', '.next', function() { 
 	$('.tab').hide();
 //document.getElementsByClassName("step")[counter].className += " finish";
@@ -251,7 +258,7 @@ $('body').on('click', '.next', function() {
 	if(counter > 1) {
 		$('.back').show();
 	};
-	if(counter > total) {
+	if(counter >=total) {
             //alert(counter);
             $('#endbtn').show();
             //$('.next').hide();
@@ -279,4 +286,3 @@ function tabSwitch(values){
 <script src="../../resources/JS/script.js" type="text/javascript"></script>
 </body>
 </html>
-

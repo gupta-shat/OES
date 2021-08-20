@@ -72,6 +72,7 @@ public class ExamCtrl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        PrintWriter out=response.getWriter();
         String subCode=request.getParameter("subject");
         String exam=request.getParameter("exam");
         String duration=request.getParameter("duration");
@@ -82,6 +83,7 @@ public class ExamCtrl extends HttpServlet {
         String isActive=request.getParameter("isActive");
         String isMain=request.getParameter("isMain");
         String isResult=request.getParameter("isResult");
+        
         ExamBean eb=new ExamBean();
         eb.setSubCode(Integer.parseInt(subCode));
         eb.setExam(exam);
@@ -93,13 +95,17 @@ public class ExamCtrl extends HttpServlet {
         eb.setIsActive(Integer.parseInt(isActive));
         eb.setIsMain(Integer.parseInt(isMain));
         eb.setIsResult(Integer.parseInt(isResult));
-          ExamModel.create(eb);
-
         //questionpaper.jsp?ques="qus"
-        //System.out.println("Subject:"+subCode+" Exam:"+exam+" duration:"+duration+" time:"+time);
-        //System.out.println("Marks:"+marks+" qus:"+qus+" Active:"+isActive+" Main:"+isMain+" Result:"+isResult);
+        int idx = ExamModel.create(eb);
+        if (idx != 0) {
+            response.sendRedirect("module/admin/QuestioPaper.jsp?ques=" + qus + "&pid=" + idx + " ");
+        } else {
+            out.println("<HTML>" + "\n" + "<head>" + "\n" + "<script>");
+            out.println("alert('Record not Entered. Please try again!')");
+            out.println("javascript:history.go(-1)");
+            out.println("</script>" + "\n" + "</head>" + "\n" + "</HTML>");
+        }    
     }
-
     /**
      * Returns a short description of the servlet.
      *
@@ -109,5 +115,4 @@ public class ExamCtrl extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

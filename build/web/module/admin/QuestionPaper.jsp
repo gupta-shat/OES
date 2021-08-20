@@ -67,7 +67,7 @@
                       </div>
                       <hr>
                       <form action="/OES/ExamPaper" method="POST">
-                          <input type="hidden" name="ques" value="<%=no_ques%>"><!-- comment -->
+                          <input type="hidden" name="ques" value="<%=no_ques%>">
                           <input type="hidden" name="paperid" value="<%=paperId%>">
                           <% //int no_ques=Integer.parseInt(request.getParameter("ques"));
                                 for(int i=1;i<=no_ques;i++){

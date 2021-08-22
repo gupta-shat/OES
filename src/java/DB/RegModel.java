@@ -85,13 +85,13 @@ public class RegModel {
                 }
                 
             }
-           
+           System.out.println("utype"+utype);
            String qry1="select * from "+utype+" where email='"+uname+"'"; 
            Statement st1=con.createStatement();
            ResultSet rs1=st1.executeQuery(qry1);
            while(rs1.next()){
                rb.setName(rs1.getString(2));
-               rb.setContact(rs1.getLong(4));
+               //rb.setContact(rs1.getLong(4));
            }
             rs.close();
           rs1.close();

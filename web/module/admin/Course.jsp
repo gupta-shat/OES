@@ -4,6 +4,9 @@
     Author     : shatakshi
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="DB.CourseModel"%>
+<%@page import="java.sql.ResultSet"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -80,11 +83,11 @@ label {
                           <div class="row">
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Course Name:</span>
-                                <input id="course" type="text" class="form-control" name="Course Name" required="">
+                                <input id="course" type="text" class="form-control" name="Course" required="">
                             </div>
                             <div class="form-group col-lg-6 col-sm-12">
                                 <span class=" ">Course Duration:</span>
-                                <input id="duration" type="text" class="form-control" name="Course Duration" required="">
+                                <input id="duration" type="text" class="form-control" name="Duration" required="">
                             </div>
                             </div>
                             <div class="form-group">
@@ -211,7 +214,7 @@ $(document).ready(function(){
 function checkAll(bx) {
   var cbs = document.getElementsByTagName('input');
   for(var i=0; i < cbs.length; i++) {
-    if(cbs[i].type == 'checkbox') {
+    if(cbs[i].type === 'checkbox') {
       cbs[i].checked = bx.checked;
     }
   }

@@ -10,16 +10,16 @@ package Beans;
  * @author shatakshi
  */
 public class ExamBean {
-    private int subCode=0;
-        private String exam=null;
-        private String duration=null;
-        private String time=null;
-        private int marks=0;
-        private int nmarks=0;
-        private int qus=0;
-        private int isActive=0;
-        private int isMain=0;
-        private int isResult=0;
+    private int subCode = 0;
+    private String exam = null;
+    private String duration = null;
+    private String time = null;
+    private int marks = 0;
+    private int nmarks = 0;
+    private int qus = 0;
+    private int isActive = 0;
+    private int isMain = 0;
+    private int isResult = 0;
 
     /**
      * @return the subCode

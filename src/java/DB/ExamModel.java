@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package DB;
+
 import Beans.ExamBean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,11 +13,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author shatakshi
  */
 public class ExamModel {
+
     public static int create(ExamBean eb) {
         int i = 0;
         try {
@@ -38,7 +41,7 @@ public class ExamModel {
 
             ResultSet rs = pst.getGeneratedKeys();
             if (rs != null && rs.next()) {
-                i=rs.getInt(1);
+                i = rs.getInt(1);
             }
 
         } catch (SQLException ex) {
@@ -46,19 +49,34 @@ public class ExamModel {
         }
         return i;
     }
-    public static ResultSet fetchExamMain(int isMain){
-        ResultSet rs=null;
-            Connection con=null;
+
+    public static ResultSet fetchExamMain(int isMain) {
+        ResultSet rs = null;
+        Connection con = null;
         try {
-            con=DBConnection.getConnection();
-            String quary="select * from Exam_Subject where isMain="+isMain+" ";
-            Statement st=con.createStatement();
-            rs=st.executeQuery(quary);
+            con = DBConnection.getConnection();
+            String quary = "select * from Exam_Subject where isMain=" + isMain + " ";
+            Statement st = con.createStatement();
+            rs = st.executeQuery(quary);
             //System.out.print(rs.getRow());
         } catch (SQLException ex) {
-            Logger.getLogger(SubjectModel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ExamModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+
+    public static ResultSet fetchExam() {
+        ResultSet rs = null;
+        Connection con = null;
+        try {
+            con = DBConnection.getConnection();
+            String quary = "select * from Exam_Subject";
+            Statement st = con.createStatement();
+            rs = st.executeQuery(quary);
+            //System.out.print(rs.getRow());
+        } catch (SQLException ex) {
+            Logger.getLogger(ExamModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
     }
 }
-

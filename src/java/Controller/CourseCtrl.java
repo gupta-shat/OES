@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package Controller;
-import Beans.ExamBean;
-import DB.ExamModel;
+
+import Beans.CourseBean;
+import DB.CourseModel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author shatakshi
  */
-public class ExamCtrl extends HttpServlet {
+public class CourseCtrl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +37,10 @@ public class ExamCtrl extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ExamCtrl</title>");            
+            out.println("<title>Servlet CourseCtrl</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ExamCtrl at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CourseCtrl at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,7 +61,7 @@ public class ExamCtrl extends HttpServlet {
         processRequest(request, response);
     }
 
-    /**
+    /** 
      * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
@@ -71,39 +72,30 @@ public class ExamCtrl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out=response.getWriter();
-        String subCode=request.getParameter("subject");
-        String exam=request.getParameter("exam");
-        String duration=request.getParameter("duration");
-        String time=request.getParameter("time");
-        String marks=request.getParameter("marks");
-        //String nmarks=request.getParameter("nmarks");
-        String qus=request.getParameter("totalqus");
-        String isActive=request.getParameter("isActive");
-        String isMain=request.getParameter("isMain");
-        String isResult=request.getParameter("isResult");
-        
-        ExamBean eb=new ExamBean();
-        eb.setSubCode(Integer.parseInt(subCode));
-        eb.setExam(exam);
-        eb.setDuration(duration);
-        eb.setTime(time);
-        eb.setMarks(Integer.parseInt(marks));
-        //eb.setNmarks(Integer.parseInt(nmarks));
-        eb.setQus(Integer.parseInt(qus));
-        eb.setIsActive(Integer.parseInt(isActive));
-        eb.setIsMain(Integer.parseInt(isMain));
-        eb.setIsResult(Integer.parseInt(isResult));
-        //questionpaper.jsp?ques="qus"
-        int idx = ExamModel.create(eb);
-        if (idx != 0) {
-            response.sendRedirect("module/admin/QuestioPaper.jsp?ques=" + qus + "&pid=" + idx + " ");
+        //processRequest(request, response);
+        PrintWriter out = response.getWriter();
+        String course = request.getParameter("Course");
+        String duration = request.getParameter("Duration");
+        String description = request.getParameter("Description");
+        String sessionable = request.getParameter("Sessionable");
+
+        CourseBean cb = new CourseBean();
+        cb.setCourse(course);
+        cb.setDuration(duration);
+        cb.setDescription(description);
+        cb.setSessionable(Integer.parseInt(sessionable));
+        int i = CourseModel.create(cb);
+        if (i != 0) {
+            out.println("<HTML>" + "\n" + "<head>" + "\n" + "<script>");
+            out.println("alert('Record Entered Successfully!')");
+            out.println("javascript:history.go(-1)");
+            out.println("</script>" + "\n" + "</head>" + "\n" + "</HTML>");
         } else {
             out.println("<HTML>" + "\n" + "<head>" + "\n" + "<script>");
             out.println("alert('Record not Entered. Please try again!')");
             out.println("javascript:history.go(-1)");
             out.println("</script>" + "\n" + "</head>" + "\n" + "</HTML>");
-        }    
+        } 
     }
     /**
      * Returns a short description of the servlet.
@@ -114,4 +106,5 @@ public class ExamCtrl extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 }

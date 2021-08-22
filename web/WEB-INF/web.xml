@@ -20,6 +20,10 @@
         <servlet-name>ExamPaperCtrl</servlet-name>
         <servlet-class>Controller.ExamPaperCtrl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CourseCtrl</servlet-name>
+        <servlet-class>Controller.CourseCtrl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>ExamPaperCtrl</servlet-name>
         <url-pattern>/ExamPaper</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CourseCtrl</servlet-name>
+        <url-pattern>/CourseCtrl</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

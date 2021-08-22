@@ -3,6 +3,7 @@
     Created on : 08-Aug-2021, 1:04:12 am
     Author     : shatakshi
 --%>
+<%@page import="DB.ExamModel"%>
 <%@page import="DB.SubjectModel"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,7 +18,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
         <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
         <link href="../../CSS/styles.css" rel="stylesheet" type="text/css"/>
@@ -41,7 +41,6 @@
 
         <div class="mycontainer">
             <%@include file="include/header.jsp" %>
-
             <main>
                 <div class="main__container">
                     <!-- MAIN TITLE STARTS HERE -->
@@ -75,28 +74,28 @@
                                             </select>
                                         </div>
                                         <div class="form-group col-lg-6 col-sm-12">
-                                            <span class=" ">Exam Time:</span>
-                                            <input id="Course" type="datetime-local" class="form-control" name="time" required="">
+                                            <span class=" ">Exam Date & Time:</span>
+                                            <input id="time" type="datetime-local" class="form-control" name="time" required="">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-lg-6 col-sm-12">
                                             <span class=" ">Exam Title:</span>
-                                            <input id="Subject" type="text" class="form-control" name="exam" required="">
+                                            <input id="exam" type="text" class="form-control" name="exam" required="">
                                         </div>
                                         <div class="form-group col-lg-6 col-sm-12">
                                             <span class=" ">Exam Duration:</span>
-                                            <input id="Course" type="time" class="form-control" name="duration" required="">
+                                            <input id="duration" type="time" class="form-control" name="duration" required="">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-lg-6 col-sm-12">
                                             <span class=" ">Marks Per Question:</span>
-                                            <input id="Session" type="Number" class="form-control" name="marks" required="">
+                                            <input id="marks" type="Number" class="form-control" name="marks" required="">
                                         </div>
                                         <div class="form-group col-lg-6 col-sm-12">
                                             <span class=" ">Total Number of Questions :</span>
-                                            <input type="number" class="form-control" name="totalqus" required/>
+                                            <input type="totalqus" class="form-control" name="totalqus" required/>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -112,8 +111,8 @@
                                         <div class="form-group col-lg-6 col-sm-12">
                                             <div class="row"> 
                                                 <div class="form-group col-lg-4 col-sm-12"><span class=" ">Exam Type:   </span></div>
-                                                <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="isMain" id="Main Exam" value="1">Main Exam</div>
-                                                <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="isMain" id="Mock Test" value="0">Mock Test</div>
+                                                <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="isMain" id="main" value="1">Main Exam</div>
+                                                <div class="form-group col-lg-4 col-sm-6"><input type="radio" name="isMain" id="mock" value="0">Mock Test</div>
                                             </div>
                                         </div>
                                     </div>
@@ -134,25 +133,39 @@
                         </div>
 
                         <div class="card" style="padding: 0px; height: auto">
-                            <div class="card-header">Course Details</div>
+                            <div class="card-header">Exam Details</div>
                             <div class="card-body">
                                 <div class="dataTable_wrapper">
                                     <table class="table table-striped table-hover table-responsive" id="dataTables">
                                         <thead>
                                             <tr>
-                                                <th>Subject Name</th>
-                                                <th>Description</th>
+                                                <th>Subject</th>
+                                                <th>Exam Title</th>
+                                                <th>Exam Date & Time</th>
+                                                <th>Exam Duration</th>
+                                                <th>Marks Per Question</th>
+                                                <th>Total Number of Questions</th>
+                                                <th>Active</th>
+                                                <th>Main Exam</th>
+                                                <th>Result Declared</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <%
-                                                ResultSet rs1 = SubjectModel.fetchSubject();
-                                                while (rs.next()) {
+                                                ResultSet rs1 = ExamModel.fetchExam();
+                                                while (rs1.next()) {
                                             %>
                                             <tr>
-                                                <td><%=rs.getString(2)%></td>
-                                                <td><%=rs.getString(3)%></td>
+                                                <td><%=rs1.getString(12)%></td>
+                                                <td><%=rs1.getString(2)%></td>
+                                                <td><%=rs1.getString(3)%></td>
+                                                <td><%=rs1.getString(4)%></td>
+                                                <td><%=rs1.getString(5)%></td>
+                                                <td><%=rs1.getString(7)%></td>
+                                                <td><%=rs1.getString(8)%></td>
+                                                <td><%=rs1.getString(9)%></td>
+                                                <td><%=rs1.getString(10)%></td>
                                                 <td><i class="fa fa-edit"></i><i class="fa fa-trash"></i></td>
                                             </tr>
                                             <% }%>
@@ -173,6 +186,7 @@
             $(document).ready(function () {
                 $("#myBtn").click(function () {
                     $("#myModal").modal();
+
                 });
                 $('#dataTables').DataTable({
                     responsive: true
@@ -181,13 +195,11 @@
             function checkAll(bx) {
                 var cbs = document.getElementsByTagName('input');
                 for (var i = 0; i < cbs.length; i++) {
-                    if (cbs[i].type === 'checkbox') {
+                    if (cbs[i].type == 'checkbox') {
                         cbs[i].checked = bx.checked;
                     }
                 }
-                }
             }
-            );
         </script>
         <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
         <script src="../../resources/JS/script.js" type="text/javascript"></script>
